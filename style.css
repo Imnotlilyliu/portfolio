@@ -104,3 +104,22 @@ nav a:hover {
 html {
   scroll-behavior: smooth;
 }
+
+header h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+}
+
+a {
+  color: #4a90e2;
+}
+
+a:hover {
+  text-decoration: underline;
+}
