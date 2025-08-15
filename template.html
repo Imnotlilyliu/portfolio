@@ -16,6 +16,7 @@
         <a herf="projects/project2.html">项目2</a>
       </nav>
     </header>
+    <h2 style="margin-top:1rem">页面标题</h2>
     <main>
       <h2>页面的主要内容</h2>
       <p>这里是页面的主要内容，你可以在这里写任何你想写的内容。</p>
@@ -23,5 +24,27 @@
     <footer>
       <p>©2025 刘直燕</p>
     </footer>
+    <script>
+    (function () {
+      var path = window.location.pathname.split('/').pop();
+      if (!path) path = "index.html";
+      document.querySelectorAll('nav a').forEach(function (a) {
+        var href = a.getAttribute('href') || '';
+        var target = href.split("/").pop() || "index.html";
+        if (target === path) a.classList.add('active');
+      });
+      var btn = docunment.createElement('button');
+      btn.id = "backToTop";
+      btn.title = "回到顶部";
+      btn.textContent = "↑";
+      document.body.appendChild(btn);
+      window.addEventListener('scroll', function () {
+        btn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
   </body>
 </html>

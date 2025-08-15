@@ -20,6 +20,8 @@
   </div>
   </header>
 
+  <h2 style="margin-top:1rem">页面标题</h2>
+  
   <main>
     <section id="about">
       <h2>关于我</h2>
@@ -46,5 +48,27 @@
   <footer id="contact">
     <p>联系我：<a href="mailto:你的邮箱地址">749627802@qq.com</a> | <a href="https://github.com/imnotlilyliu">GitHub</a></p>
   </footer>
+  <script>
+    (function () {
+      var path = window.location.pathname.split('/').pop();
+      if (!path) path = "index.html";
+      document.querySelectorAll('nav a').forEach(function (a) {
+        var href = a.getAttribute('href') || '';
+        var target = href.split("/").pop() || "index.html";
+        if (target === path) a.classList.add('active');
+      });
+      var btn = docunment.createElement('button');
+      btn.id = "backToTop";
+      btn.title = "回到顶部";
+      btn.textContent = "↑";
+      document.body.appendChild(btn);
+      window.addEventListener('scroll', function () {
+        btn.style.display = window.scrollY > 300 ? "block" : "none";
+      });
+      btn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
 </body>
 </html>
